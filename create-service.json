@@ -1,0 +1,29 @@
+{
+    "taskDefinition": "arn:aws:ecs:us-east-2:354007467751:task-definition",
+    "cluster": "jjtech-java-app-cluster",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:354007467751:targetgroup/Blue-environment-tg1/2479c77e52c6fd4e",
+            "containerName": "simple-website",
+            "containerPort": 80
+        }
+    ],
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "schedulingStrategy": "REPLICA",
+    "deploymentController": {
+        "type": "CODE_DEPLOY"
+    },
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-09b73856",
+                "subnet-c09bc98d"
+            ],
+            "securityGroups": [
+                "sg-007e0977307e9f3a0"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    }
+}
